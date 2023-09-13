@@ -5,11 +5,15 @@
 - JENIFFER MOREIRA BORGES 
 - PEDRO HENRIQUE DOS SANTOS
 
+Repo: https://github.com/gubeche0/labsisop-buildroot-grp-02/
 # Adicionando interpretador e suporte para linguagem:
 
 Execute o comando `make menuconfig` e faça as seguintes configuraçõs:
 
 Altere a biblioteca utilizada de c
+
+Toolchain ---> 
+    C library (uClibc-ng)
 
 Habilite suporte WCHAR:
 

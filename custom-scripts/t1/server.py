@@ -66,8 +66,8 @@ class MyHandler(BaseHTTPRequestHandler):
         total = mem.split()[1]
         used = mem.split()[2]
 
-        self.wfile.write(f"<p>Memória total: {total}</p>".encode())
-        self.wfile.write(f"<p>Memória usada: {used}</p>".encode())
+        self.wfile.write(f"<p>Memória total: {total}MB</p>".encode())
+        self.wfile.write(f"<p>Memória usada: {used}MB</p>".encode())
 
     def versaoSistemaOperacional(self):
         version = os.popen('uname -a').read()
@@ -75,7 +75,7 @@ class MyHandler(BaseHTTPRequestHandler):
 
     def listaProcessos(self):
         # Lista de processos em execução (pid e nome)
-        processos = os.popen('ps -A -o "ppid,comm"').read()
+        processos = os.popen('ps -A -o "pid,comm"').read()
         self.wfile.write(f"<p>Processos: <pre>{processos}</pre></p>".encode())
 
 if __name__ == '__main__':
