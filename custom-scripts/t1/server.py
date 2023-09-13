@@ -21,8 +21,8 @@ class MyHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
-        self.wfile.write("<html><head><title>Title goes here.</title></head>".encode())
-        self.wfile.write("<body><p>This is a test.</p>".encode())
+        self.wfile.write("<html><head><title>T1 grupo2</title></head>".encode())
+        self.wfile.write("<body>".encode())
         self.wfile.write(f"<p>Data e Hora: {datahora}</p>".encode())
 
         self.get_uptime()
@@ -35,7 +35,7 @@ class MyHandler(BaseHTTPRequestHandler):
 
         # If someone went to "http://something.somewhere.net/foo/bar/",
         # then self.path equals "/foo/bar/".
-        self.wfile.write(f"<p>You accessed path: {self.path}</p>".encode())
+        # self.wfile.write(f"<p>You accessed path: {self.path}</p>".encode())
         self.wfile.write("</body></html>".encode())
 
     def get_uptime(self):
@@ -47,11 +47,11 @@ class MyHandler(BaseHTTPRequestHandler):
     def modeloProcessador(self):
         # ● Modelo do processador e velocidade;
         
-        modelo = os.popen('cat /proc/cpuinfo | grep "model name"').read()
-        velocidade = os.popen('cat /proc/cpuinfo | grep "cpu MHz"').read()
+        modelo = os.popen('cat /proc/cpuinfo | grep "model name"').read().split('\n')[0]
+        velocidade = os.popen('cat /proc/cpuinfo | grep "cpu MHz"').read().split('\n')[0]
 
-        self.wfile.write(f"<p>Modelo CPU: <pre>{modelo}</pre></p>".encode())
-        self.wfile.write(f"<p>Velocidade CPU:  <pre>{velocidade}</pre></p>".encode())
+        self.wfile.write(f"<p>Modelo CPU: {modelo.split(':')[1]}</p>".encode())
+        self.wfile.write(f"<p>Velocidade CPU: {velocidade.split(':')[-1]} MHz</p>".encode())
 
     def capacidadeOcupadaProcessador(self):
         # ● Capacidade ocupada do processador (%);
