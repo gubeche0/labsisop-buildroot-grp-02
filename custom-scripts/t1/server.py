@@ -1,3 +1,7 @@
+#!/usr/bin/python 
+# -*- coding: utf-8 -*-
+
+
 import time
 import os
 from http.server import BaseHTTPRequestHandler,HTTPServer

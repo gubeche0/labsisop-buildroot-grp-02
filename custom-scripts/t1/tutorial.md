@@ -1,5 +1,5 @@
 # IMPLEMENTAÇÃO DE SERVIDOR WEB
-<!-- ### Grupo 02 -->
+## Grupo 02: 
 
 - BRUNO CRAVO BATTESINI 
 - GUSTAVO BECHE LOPES 
@@ -13,9 +13,9 @@ Nesse trabalho, o principal objetivo é implementar um servidor em Python, o qua
 
 ### Adicionando interpretador e suporte para linguagem:
 
-Execute o comando `make menuconfig` e faça as seguintes configuraçõs:
+Execute o comando `make menuconfig` e faça as seguintes configurações:
 
-Altere a biblioteca utilizada de c
+Altere a biblioteca utilizada de C
 
 ```
 Toolchain ---> 
@@ -51,7 +51,7 @@ Target packages
 
 ### Recompile
 
-Recompile utilizando os comandos `make clean` e `make`. Ao compilar será copiado o arquivo `custom-scripts/t1/server.py` para a pasta `/usr/bin` dentro do target.
+Recompile utilizando os comandos `make clean` e `make`. Ao compilar, será copiado o arquivo `custom-scripts/t1/server.py` para a pasta `/usr/bin` dentro do target.
 
 ### Executando o servidor
 
@@ -65,15 +65,16 @@ $ sudo qemu-system-i386 --device e1000,netdev=eth0,mac=aa:bb:cc:dd:ee:ff \
 	--append "console=ttyS0 root=/dev/sda" 
 ```
 
-Execute na máquina target o seguinte comando: 
+O serviço será executado de forma aumatica ao inicializar a máquina target.
+<!-- Execute na máquina target o seguinte comando: 
 
 ```shell
 $ python3 /usr/bin/server.py
-```
+``` -->
 
 ### Testando o servidor web
 
-Na máquina host acesse o endereço `http://192.168.1.10:8000`, para isso pode ser utilizado a ferramenta `lynk` com o seguinte comando:
+Na máquina host acesse o endereço `http://192.168.1.10:8000`, para isso pode ser utilizado a ferramenta `lynx` com o seguinte comando:
 
 ```shell
 $ lynx 192.168.1.10:8000

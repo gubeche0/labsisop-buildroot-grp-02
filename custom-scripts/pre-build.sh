@@ -8,3 +8,6 @@ chmod +x $BASE_DIR/target/etc/init.d/s50hello
 
 cp $BASE_DIR/../custom-scripts/t1/server.py $BASE_DIR/target/usr/bin
 chmod +x $BASE_DIR/target/usr/bin/server.py
+
+cp $BASE_DIR/../custom-scripts/t1/S60startserver $BASE_DIR/target/etc/init.d/S60startserver
+chmod +x $BASE_DIR/target/etc/init.d/S60startserver
