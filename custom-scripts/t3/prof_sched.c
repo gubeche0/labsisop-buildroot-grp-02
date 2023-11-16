@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 {
   if (argc != 3) 
   {
-    printf("Uso: %s <tamanho_do_buffer> <n�mero_de_threads>\n", argv[0]);
+    printf("Uso: %s <tamanho_do_buffer> <número_de_threads>\n", argv[0]);
     return 1;
   }
 
@@ -55,14 +55,14 @@ int main(int argc, char* argv[])
 
   if (tam_buffer <= 0 || num_threads <= 0 || num_threads > MAX_THREADS) // testa os inputs
   {
-    printf("Argumentos inv�lidos.\n");
+    printf("Argumentos inválidos.\n");
     return 1;
   }
 
   buffer = (char*)malloc(tam_buffer * sizeof(char));
   if (buffer == NULL) 
   {
-    perror("Falha na aloca��o de mem�ria para o buffer\n");
+    perror("Falha na alocação de memória para o buffer\n");
     return 1;
   }
 
@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
   char* novo_buffer = (char*)malloc(tam_buffer * sizeof(char)); // buffer que tera o pos processamento do original
   if (novo_buffer == NULL) 
   {
-    perror("Falha na aloca��o de mem�ria para o novo buffer\n");
+    perror("Falha na alocação de memória para o novo buffer\n");
     return 1;
   }
   int cont_pos_novo_buff = 0;
@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
     }
   }
 
-  printf("N�mero de vezes que cada thread foi escalonada:\n");
+  printf("Número de vezes que cada thread foi escalonada:\n");
   for (int i = 0; i < num_threads; i++) 
   {
     printf("%c - %d\n", 'A' + i, cont_threads[i]);
