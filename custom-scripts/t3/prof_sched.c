@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
     pthread_join(threads[i], NULL); // aguarda todas threads terminarem
   }
 
-  printf("Buffer global: %s\n", buffer);
+  printf("Buffer global: %s\n\n", buffer);
 
   char* novo_buffer = (char*)malloc(tam_buffer * sizeof(char)); // buffer que tera o pos processamento do original
   if (novo_buffer == NULL) 
@@ -114,6 +114,11 @@ int main(int argc, char* argv[])
       char_anterior = buffer[i]; // atualiza o char_anterior para a nova letra
     }
   }
+  cont_threads[char_anterior - 'A']++; // incrementa o contador da ultima letra
+  novo_buffer[cont_pos_novo_buff++] = char_anterior; // adiciona a ultima letra no novo buffer (reduzido)
+
+
+  printf("Buffer global com pós-processamento: %s\n\n", novo_buffer);
 
   printf("Número de vezes que cada thread foi escalonada:\n");
   for (int i = 0; i < num_threads; i++) 
