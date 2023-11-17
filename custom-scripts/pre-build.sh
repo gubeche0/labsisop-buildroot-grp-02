@@ -22,4 +22,4 @@ $COMPILER -o $BUILDROOT_DIR/output/target/bin/syscall_test $BUILDROOT_DIR/custom
 
 make -C $BASE_DIR/../modules/simple_driver/
 
-$COMPILER -o $BUILDROOT_DIR/output/target/bin/prof_sched $BUILDROOT_DIR/custom-scripts/t3/prof_sched.c -lpthread
+$COMPILER -o $BUILDROOT_DIR/output/target/bin/sched_profiler $BUILDROOT_DIR/custom-scripts/t3/sched_profiler.c -lpthread
