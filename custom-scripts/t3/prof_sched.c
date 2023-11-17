@@ -102,12 +102,7 @@ int main(int argc, char* argv[])
 
   for (int i = 1; i < tam_buffer; i++) 
   {
-    if (buffer[i] == char_anterior) 
-    {
-      // continua na mesma letra
-    }
-    else 
-    {
+    if (buffer[i] != char_anterior) {
       cont_threads[char_anterior - 'A']++; // cada vez que muda de letra, incrementa o contador de "escalonadas" da ultima letra
 
       novo_buffer[cont_pos_novo_buff++] = char_anterior; // adiciona uma unidade da letra no novo buffer (reduzido)
@@ -128,6 +123,8 @@ int main(int argc, char* argv[])
 
   free(buffer);
   sem_destroy(&mutex);
+  // pthread_cond_destroy(&cond);
+  pthread_barrier_destroy(&barrier);
 
   return 0;
 }
